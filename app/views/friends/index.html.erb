@@ -1,0 +1,37 @@
+<% content_for :title, "Friends" %>
+
+<h1>Friends</h1>
+
+<div id="friends"><table class="table table-striped-columns table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Twitter</th>
+      <th scope="col">Edit?</th>
+      <th scope="col">Show?</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |f| %>
+    <tr>
+      <td><%= f.first_name %></td>
+      <td><%= f.last_name %></td>
+      <td><%= f.email %></td>
+      <td><%= f.phone %></td>
+      <td><%= f.twitter %></td>
+      <td><%= link_to "Edit", edit_friend_path(f), class: "btn btn-primary" %></td>
+      <td><%= link_to "Show", friend_path(f), class: "btn btn-secondary" %></td>
+
+    </tr>
+     <% end %>
+    </tbody>
+</table>
+ 
+</div>
+
+<%= link_to "New friend", new_friend_path %>
